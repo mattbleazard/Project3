@@ -39,12 +39,17 @@
                         <td><%= myVehicles[iCount].vYear %></td>
                         <td><%= myVehicles[iCount].vMileage %></td>
                         <td><%= myVehicles[iCount].vStillUsing %></td>
-                        <td id="edit <%=iCount %>"><button>Edit</button></td>
+                        <td>
+                            <form action="/editvehicle/<%= myVehicles[iCount].vehicle_id %>" method="GET">
+                            <input type="submit" value="edit" name="edit">
+                        </form>
+                        </td>
                     </tr>
                     <% } %>
             </tbody>
         </table>
-        <form action="/addVehicle" method="GET">
+        <br><br>
+        <form action="/addvehicle" method="GET">
             <button type="submit">Add Vehicle</button>
         </form>
     </body>
