@@ -36,10 +36,25 @@ app.get("/displayvehicle", (req, res) => {
 
 
 // Edit a record (24.9)
-
+app.get("/editvehicle", (req, res) => {
+    knex.select().from("Vehicle").then(vData => {
+        res.render("editVehicle", {myVehicles : vData});
+    }).catch(err => {
+          console.log(err);
+          res.status(500).json({err});
+    });
+});
 
 //Insert a Record (24.10)
 
 
 
 //Delete a record (24.11)
+app.post("/deletevehicle/:id", (req, res) => {
+    knex("Vehicle").where("vehicle_id", req.params.id).del().then(mybands => {
+        res.redirect("/displayvehicle");
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({err});
+    })
+}); 
