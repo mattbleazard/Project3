@@ -28,30 +28,51 @@ const knex = require("knex")({
 app.get("/displayvehicle", (req, res) => {
       knex.select().from("Vehicle").then(vData => {
           res.render("displayVehicle", {myVehicles : vData});
-      }).catch(err => {
-            console.log(err);
-            res.status(500).json({err});
-      });
+      })
   });
 
 
 // Edit a record (24.9)
-app.get("/editvehicle", (req, res) => {
-    knex.select().from("Vehicle").then(vData => {
-        res.render("editVehicle", {myVehicles : vData});
-    }).catch(err => {
-          console.log(err);
-          res.status(500).json({err});
+app.get("/editvehicle/:id", (req, res) => {
+    knex.select().from("Vehicle", req.params.id).then(vehicle => {
+        res.render("editVehicle", {myVehicles: vehicle});
     });
 });
 
-//Insert a Record (24.10)
 
+app.post("/editvehicle", (req, res) => {
+    knex("Vehicle").where("vehicle_id", parseInt(req.params.VehicleID)).update({
+        vDescription: req.body.Description,
+        vType: req.body.Type,
+        vYear: req.body.Year,
+        vMileage: req.body.Mileage,
+        vStillUsing: req.body.StillUsing
+    });
+});
+
+//Add a Record (24.10)
+app.get("/addvehicle", (req, res) => {
+    knex.select().from("Vehicle").then(vData => {
+        res.render("addVehicle", {myVehicles : vData});
+    })
+});
+
+app.post("/addvehicle", (req, res) => {
+    knex("Vehicle").insert({
+        vDescription: req.body.vDescription, 
+        vType: req.body.vType, 
+        vYear: req.body.vYear, 
+        vMileage: req.body.vMileage,
+        vStillUsing: req.body.vStillUsing
+    }).then(myVehicles => {
+        res.redirect("/displayvehicle");
+    })
+});  
 
 
 //Delete a record (24.11)
 app.post("/deletevehicle/:id", (req, res) => {
-    knex("Vehicle").where("vehicle_id", req.params.id).del().then(mybands => {
+    knex("Vehicle").where("vehicle_id", req.params.id).del().then(myVehicles => {
         res.redirect("/displayvehicle");
     }).catch(err => {
         console.log(err);
