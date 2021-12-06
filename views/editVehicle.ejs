@@ -10,10 +10,10 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
+            <title>Edit Vehicle</title>
       </head>
       <body>
-            <form action="/edit" method="POST">
+            <form action="/editvehicle" method="POST">
             <fieldset style="width: 0px;">
                   <legend>Edit Vehicle:</legend>
                         <input type="hidden" id="VehicleID" name="VehicleID" value="<%= myVehicles[0].vehicle_id %>">
@@ -21,18 +21,19 @@
                         <input type="text" id="Description" name="Description" value="<%= myVehicles[0].vDescription %>">
                         <br><br>
                         <label for="singer">Type:</label>
-                        <input type="text" id="Type" name="Type" value="<%= myVehicles[0].vType %>">
+                        <input type="radio" id="Type" name="Type" value="<%= myVehicles[0].vType %>">
                         <br><br>
                         <label for="singer">Year:</label>
-                        <input type="text" id="Year" name="Year" value="<%= myVehicles[0].vType %>">
+                        <input type="number" id="Year" name="Year" value="<%= myVehicles[0].vYear %>">
                         <br><br>
                         <label for="singer">Mileage:</label>
-                        <input type="text" id="Mileage" name="Mileage" value="<%= myVehicles[0].vMileage %>">
+                        <input type="number" id="Mileage" name="Mileage" value="<%= myVehicles[0].vMileage %>">
                         <br><br>
                         <label for="singer">Still Using?:</label>
-                        <input type="text" id="StillUsing" name="StillUsing" value="<%= myVehicles[0].vStillUsing %>">
+                        <input type="checkbox" id="StillUsing" name="StillUsing" value="<%= myVehicles[0].vStillUsing %>">
                         <br><br>
                         <button type="submit">Save</button>
+                        <button type="Cancel">Cancel</button>
             </fieldset>
             </form>
       </body>
