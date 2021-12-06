@@ -30,7 +30,11 @@
             <tbody>
                 <% for (let iCount = 0; iCount < myVehicles.length; iCount++) { %>
                     <tr>
-                        <td><button id="delete <%=iCount %>">Delete</button></td>
+                        <td>
+                            <form action="/deletevehicle/<%= myVehicles[iCount].vehicle_id %>" method="POST">
+                                <input type="submit" value="Delete" name="Delete">
+                            </form>
+                        </td>
                         <td><%= myVehicles[iCount].vehicle_id %></td>
                         <td><%= myVehicles[iCount].vDescription %></td>
                         <td><%= myVehicles[iCount].vType %></td>
