@@ -18,7 +18,7 @@ const knex = require("knex")({
       connection: {
           host : "localhost",
           user : "postgres",
-          password : "dwedox6e",
+          password : "Iloveis303", //Make sure to change your password locally
           database : "postgres",
           port : 5432
       }
