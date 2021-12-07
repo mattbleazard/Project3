@@ -39,14 +39,15 @@ app.get("/editvehicle/:id", (req, res) => {
     });
 });
 
-
 app.post("/editvehicle", (req, res) => {
-    knex("Vehicle").where("vehicle_id", parseInt(req.params.VehicleID)).update({
-        vDescription: req.body.Description,
-        vType: req.body.Type,
-        vYear: req.body.Year,
-        vMileage: req.body.Mileage,
-        vStillUsing: req.body.StillUsing
+    knex("Vehicle").where("vehicle_id", parseInt(req.body.VehicleID)).update({
+        vDescription: req.body.vDescription,
+        vType: req.body.vType,
+        vYear: req.body.vYear,
+        vMileage: req.body.vMileage,
+        vStillUsing: req.body.vStillUsing
+    }).then(myVehicles => {
+        res.redirect("/displayvehicle");
     });
 });
 
