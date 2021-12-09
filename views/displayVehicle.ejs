@@ -12,17 +12,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <title>Vehicle Inventory</title>
-        <script>
-            
-            /*if (stillUsing.innerHTML == "Y") {
-                stillUsing.classList.add('bg-green-100 text-green-800');
-            } else {
-                stillUsing.classList.add('bg-yellow-100 text-yellow-800');
-            }*/
-        </script>
     </head>
     <body class="bg-gray-100">
-        
         <div class="flex flex-col" style="width: 900px; margin: auto auto;">
             <h1 class="font-bold text-gray-900 text-5xl mb-8 mt-8 place-self-center">Vehicle Inventory System</h1>
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -55,11 +46,13 @@
                                         </form>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= myVehicles[iCount].vDescription %></td>
-                                    <td class="px-6 py-4 whitespace-nowrap"><%= myVehicles[iCount].vType %></td>
-                                    <td class="px-6 py-4 whitespace-nowrap"><%= myVehicles[iCount].vYear %></td>
-                                    <td class="px-6 py-4 whitespace-nowrap"><%= myVehicles[iCount].vMileage %></td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full py-0.5 <%= myVehicles[iCount].vType == "T" ? "bg-gray-100 text-gray-800" : myVehicles[iCount].vType == "C" ? "bg-blue-100 text-blue-800" : myVehicles[iCount].vType == "B" ? "bg-purple-100 text-purple-800" : "bg-pink-100 text-pink-800" %>"><%= myVehicles[iCount].vType %></span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"><%= myVehicles[iCount].vYear %></td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"><%= myVehicles[iCount].vMileage %></td>
                                     <td class="px-6 py-4 flex justify-center">
-                                        <span id="stillUsing" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"><%= myVehicles[iCount].vStillUsing %></span>
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full py-0.5 <%= myVehicles[iCount].vStillUsing == "Y" ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800" %>"><%= myVehicles[iCount].vStillUsing %></span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-indigo-600 hover:text-indigo-900">
                                         <form action="/editvehicle/<%= myVehicles[iCount].vehicle_id %>" method="GET">
