@@ -21,18 +21,20 @@
                   <input type="text" id="vDescription" name="vDescription" value="<%=myVehicles[0].vDescription %>">
                   <br><br>
                   <label for="vType">Enter Vehicle Type:</label>
-                  <input id="rCar" type="radio" value="C" name="vType" <%=myVehicles[0].vtype ? "checked" : "" %>/>Car
-                  <input id="rTruck" type="radio" value="T" name="vType"<%=myVehicles[0].vtype ? "checked" : "" %>/>Truck
-                  <input id="rMotorcycle" type="radio" value="M" name="vType"/>Motorcycle
+                  <input id="rCar" type="radio" value="C" name="vType" <%if (myVehicles[0].vType == "C") {%> checked <%}%>/>Car
+                  <input id="rTruck" type="radio" value="T" name="vType" <%if (myVehicles[0].vType == "T") {%> checked <%}%>/>Truck
+                  <input id="rBike" type="radio" value="B" name="vType" <%if (myVehicles[0].vType == "B") {%> checked <%}%>/>Bike
+                  <input id="rMotorcycle" type="radio" value="M" name="vType" <%if (myVehicles[0].vType == "M") {%> checked <%}%>/>Motorcycle
                   <br>
                   <label for="vYear">Enter Vehicle Year:</label>
                   <input type="number" id="vYear" name="vYear" min=1950 value="<%=myVehicles[0].vYear %>">
                   <br><br>
                   <label for="vMileage">Enter Vehicle Mileage:</label>
-                  <input type="number" id="vMileage" name="vMileage" value="<%=myVehicles[0].vMileage %>">
+                  <input type="number" id="vMileage" name="vMileage" value="<%=myVehicles[0].vMileage %>" <%if (myVehicles[0].vType == "B") {%> readonly <%}%>>
                   <br><br>
                   <label for="vStillUsing">Still Using?</label>
-                  <input type="checkbox" id="vStillUsing" name="vStillUsing" value="<%=myVehicles[0].vStillUsing %>"> Checked for Yes
+                  <input type="radio" id="Y" name="vStillUsing" value="Y" <%if (myVehicles[0].vStillUsing == "Y") {%> checked <%}%>/>Yes
+                  <input type="radio" id="N" name="vStillUsing" value="N" <%if (myVehicles[0].vStillUsing == "N") {%> checked <%}%>>No 
                   <br><br>
                   <button type="submit">Save Vehicle</button>
                   <button type="Cancel">Cancel</button>
