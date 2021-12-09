@@ -55,7 +55,7 @@ app.post("/editvehicle", (req, res) => {
 app.get("/addvehicle", (req, res) => {
     knex.select().from("Vehicle").then(vData => {
         res.render("addVehicle", {myVehicles : vData});
-    })
+    });
 });
 
 app.post("/addvehicle", (req, res) => {
