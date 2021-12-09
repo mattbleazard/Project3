@@ -1,4 +1,4 @@
-Setup
+[x] Setup
     Create a folder called Project3.
     Using PgAdmin, in your postgres database:
     Create a table in that database called "Vehicle". The structure for the table is as follows:
@@ -15,7 +15,7 @@ Setup
         Lexus 350, C, 2019, 2100, Y
         Polygon Siskiu D6, B, 2021, 0, Y
         Suzuki, GW250, M, 2013, 54890, N
-NPM Setup
+[x] NPM Setup
     - Use npm init to create a project file using the following parameters:
     - The project name as Project3, the description as "Vehicle Inventory System", main as index.js, and the author as a comma-separated list of group
       member names. You can leave the other fields default or empty
@@ -25,30 +25,30 @@ NPM Setup
         knex
         pg
         ejs
-    Create a server file called index.js
-    Create a main landing page called index.ejs (in a views subfolder). 
+    [x] Create a server file called index.js
+    [x] Create a main landing page called index.ejs (in a views subfolder). 
 Index.ejs
-    This page should have some means of displaying the "displayVehicle.ejs" page (i.e. button, menu item, image, etc.).
+    [x] This page should have some means of displaying the "displayVehicle.ejs" page (i.e. button, menu item, image, etc.).
 displayVehicle.ejs
-    - The displayVehicle.ejs file should display all the records from the vehicle table. It should also have a delete button on the left of each record 
+    [ ] The displayVehicle.ejs file should display all the records from the vehicle table. It should also have a delete button on the left of each record 
       and an edit button on the right of the record.
-    - Somewhere in this page there should be a button for adding a new record.
+    [ ] Somewhere in this page there should be a button for adding a new record.
 deleteVehicle.ejs
-    - The delete button should route to deleteVehicle and should receive the vehicle_id. This is a post method and should delete the vehicle from the 
+    [ ] The delete button should route to deleteVehicle and should receive the vehicle_id. This is a post method and should delete the vehicle from the 
       vehicle table. If there is an error, then return a 500 status and the json of the err. Also display the err to the console log. If the delete 
       works then redirect back to ("/displayvehicle") which is renders the displayVehicle.ejs file.
 EditVehicle.ejs
-    - The edit button should use the editVehicle route and pass the data from the record to the editVehicle.ejs file. The data will be displayed as:
+    [ ] The edit button should use the editVehicle route and pass the data from the record to the editVehicle.ejs file. The data will be displayed as:
         description – text
         type – radio button group with default of "C" for new records ("C - Car, T - Truck, B - Bike, M - Motorcycle")
         year – number with min of 1950 and no max
         mileage - number (Do not allow editing for the Bike)
         still_using – checkbox with default of "Y" on new records ("Y or N")
-    - Allow the user to change the data. There should be a Save and Cancel button on this page. If the user clicks on the Save button, then the data 
+    [ ] Allow the user to change the data. There should be a Save and Cancel button on this page. If the user clicks on the Save button, then the data 
       should be saved back to the record updating the fields. If the user clicks on the Cancel button, then it should redirect back to the home back 
       and display the records from the vehicle table. This should happen on the Save also.
 addVehicle.ejs
-    - If the user clicks on the Add button, then it should use the addVehicle route and take the user to the addVehicle.ejs file. When the user clicks 
+    [ ] If the user clicks on the Add button, then it should use the addVehicle route and take the user to the addVehicle.ejs file. When the user clicks 
       on the Save button it should submit the new record and add it to the table and then redirect to the display vehicle page showing all the records 
       in the table.  
 Extra Credit
