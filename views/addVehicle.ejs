@@ -9,41 +9,68 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
       <title>Add Vehicle</title>
+      <style>
+            footer {
+               position: fixed;
+               left: 0;
+               bottom: 0;
+               width: 100%;
+               background-color: rgb(255, 102, 0);
+               color: white;
+               text-align: center;
+            }
+            </style>
       <script>
             if(document.getElementById("rBike").checked == true){
                   document.getElementById("vMileage").ariaReadOnly = true;
             };
       </script>
 </head>
-<body>
-      <form action="/addvehicle" method="POST">
-            <fieldset style="width: 0px;">
-                <label for="vDescription">Enter Vehicle Description:</label>
-                <input type="text" id="vDescription" name="vDescription">
-                <br><br>
-                <label for="vType">Enter Vehicle Type:</label>
-                <input id="rCar" type="radio" value="C" name="vType" checked/>Car
-                <input id="rTruck" type="radio" value="T" name="vType"/>Truck
-                <input id="rBike" type="radio" value="B" name="vType" />Bike
-                <input id="rMotorcycle" type="radio" value="M" name="vType"/>Motorcycle
-                <br>
-                <label for="vYear">Enter Vehicle Year:</label>
-                <input type="number" id="vYear" name="vYear" min=1950>
-                <br><br>
-                <label for="vMileage">Enter Vehicle Mileage:</label>
-                <input type="number" id="vMileage" name="vMileage">
-                <br><br>
-                <label for="vStillUsing">Still Using?</label>
-                <input type="radio" id="Y" name="vStillUsing" value="Y" checked/>Yes
-                <input type="radio" id="N" name="vStillUsing" value="N">No 
-                <br><br>
-                <button type="submit">Save Vehicle</button>
-            </fieldset>
-      </form>
-      <form action="/displayVehicle" method="get" style="display: inline-block">
-            <button type="submit">Cancel</button>
-      </form>
+<body class="bg-gray-300">
+            <div class="shadow sm:rounded-md sm:overflow-hidden" style="width: 500px;">
+                  <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                        <div class="grid grid-cols-3 gap-6">
+                              <div class="col-span-3 sm:col-span-2">  
+                              <form action="/addvehicle" method="POST">
+                                    <fieldset>
+                                    <label for="vDescription" class="text-sm font-medium text-gray-700">Enter Vehicle Description:</label>
+                                    <input type="text" id="vDescription" name="vDescription" class="mt-1 flex rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 flex-1 rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                    <br><br>
+                                    <label for="vType" class="text-base font-medium text-gray-900">Enter Vehicle Type:</label><br>
+                                    <input id="rCar" type="radio" value="C" name="vType" checked class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/><label for="rCar" class="ml-3 text-sm font-medium text-gray-700">Car</label><br>
+                                    <input id="rTruck" type="radio" value="T" name="vType" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/><label for="rTruck" class="ml-3 text-sm font-medium text-gray-700">Truck</label><br>
+                                    <input id="rBike" type="radio" value="B" name="vType" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/><label for="rBike" class="ml-3 text-sm font-medium text-gray-700">Bike</label><br>
+                                    <input id="rMotorcycle" type="radio" value="M" name="vType" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/><label for="rMotorcycle" class="ml-3 text-sm font-medium text-gray-700">Motorcycle</label>
+                                    <br>
+                                    <label for="vYear" class="text-sm font-medium text-gray-700">Enter Vehicle Year:</label>
+                                    <input type="number" id="vYear" name="vYear" min=1950 class="mt-1 flex rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 flex-1 rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                    <br><br>
+                                    <label for="vMileage" class="text-sm font-medium text-gray-700">Enter Vehicle Mileage:</label>
+                                    <input type="number" id="vMileage" name="vMileage" class="mt-1 flex rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 flex-1 rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                    <br><br>
+                                    <label for="vStillUsing" class="text-base font-medium text-gray-900">Still Using?</label>
+                                    <input type="radio" id="Y" name="vStillUsing" value="Y" checked class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/><label for="Y" class="ml-3 text-sm font-medium text-gray-700">Yes</label>
+                                    <input type="radio" id="N" name="vStillUsing" value="N" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" /><label for="N" class="ml-3 text-sm font-medium text-gray-700">No</label>
+                                    <br><br>
+                                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                          <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save Vehicle</button>
+                                                <a href="/displayVehicle">Cancel</a>
+                                          </button>
+                                    </form>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            
+            <footer>
+                  Contact <br>
+                  Call or Text: 801-422-4636 <br>
+                  Email:<a href="mailto:weluvkars@gmail.com"> weluvkars@gmail.com</a> <br>
+                  Copyright © Team Amazing 2021
+            </footer>
 </body>
 </html>
 
