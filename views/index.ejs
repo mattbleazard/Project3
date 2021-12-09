@@ -24,24 +24,41 @@
         }
         
         header{
-            height: 15vh;
+            height: 10vh;
         }
 
 
         .body {
+            margin-top: 5vh;
             display: flex;
             justify-content: center;
-            justify-content: space-evenly;
-            width: 100%;
+            justify-content: center;
             align-items: stretch;
         }
 
         section div {
-            flex 1;
+            flex: 1;
             background-color: lightgray;
-            height: 30vh;
+            height: 50vh;
+            margin-right: 5vh;
         }
 
+        section div:first-child {
+            margin-left: 5vh;
+        }
+
+        span {
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        span div {
+            flex: 1;
+        }
+
+        span div:first-child {
+            margin-top: 1vh;
+        }
 
         </style>
 </head>
@@ -50,9 +67,7 @@
         <h1 class="font-normal-light text-white text-center text-4xl align-middle" style="font-weight: 300 !important;">Group Project 3</h1>
         <nav class="font-normal-light text-white text-right"><a href="/displayvehicle">Display Vehicles</a></nav>
     </header>
-    <h2>Welcome back! </h2>
     <section class="body">
-        
         <div>
             Matt Bleazard
         </div>
@@ -74,10 +89,12 @@
     </section>
     
     <footer>
-        Contact <br>
-        Call or Text: 801-422-4636 <br>
-        Email:<a href="mailto:weluvkars@gmail.com"> weluvkars@gmail.com</a> <br>
-        Copyright © Team Amazing 2021
+        <span class="align-middle">
+            <div>Contact</div>
+            <div>Call or Text: 801-422-4636 </div>
+            <div class="block">Email:<a href="mailto:weluvkars@gmail.com"> weluvkars@gmail.com</a></div>
+            <div>Copyright © Team Amazing 2021</div>
+        </span>
     </footer>
     
 </body>
