@@ -9,6 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Home</title>
     <style>
         footer {
@@ -16,22 +17,61 @@
            left: 0;
            bottom: 0;
            width: 100%;
-           background-color: rgb(255, 102, 0);
-           color: white;
+           background-color: white;
+           color: rgb(126, 123, 118);
            text-align: center;
+           height: 15vh;
         }
+        
+        header{
+            height: 15vh;
+        }
+
+
+        .body {
+            display: flex;
+            justify-content: center;
+            justify-content: space-evenly;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        section div {
+            flex 1;
+            background-color: lightgray;
+            height: 30vh;
+        }
+
+
         </style>
 </head>
-<body>
-    <header>
-        <h1>Vehicle Inventory System</h1>
-        <h3></h3>
+<body background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
+    <header class="pl-16 p-4" style="background-color: #002E5D;">
+        <h1 class="font-normal-light text-white text-center text-4xl align-middle" style="font-weight: 300 !important;">Group Project 3</h1>
+        <nav class="font-normal-light text-white text-right"><a href="/displayvehicle">Display Vehicles</a></nav>
     </header>
-    <!--This page should have some means of displaying the "displayVehicle.ejs" page (i.e. button, menu item, image, etc.).--> 
-    <h1>
-        This is the home page
-    </h1>
-    <a href="/displayvehicle">Display</a>
+    <h2>Welcome back! </h2>
+    <section class="body">
+        
+        <div>
+            Matt Bleazard
+        </div>
+        <div>
+            Adam Bonny
+        </div>
+        <div>
+            Adam Gao
+        </div>
+        <div>
+            Bryson Shanklin
+        </div>
+        <div>
+            David Hamblin
+        </div>
+        <div>
+            Garrett Sackley
+        </div>
+    </section>
     
     <footer>
         Contact <br>
