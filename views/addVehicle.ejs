@@ -31,9 +31,13 @@
                         border: lightgray;
                   }
 
-                  body div {
+                  .body {
                         margin-top: 1vh;
                         left:10%;
+                  }
+
+                  [ariaReadOnly] {
+                        background-color: darkgray;
                   }
             </style>
             <script>
@@ -47,9 +51,9 @@
                   <h1 class="font-normal-light text-white text-center text-4xl align-middle" style="font-weight: 300 !important;">Group Project 3</h1>
                   <nav class="font-normal-light text-white text-right"><a href="/">Home</a></nav>
             </header>
-            <div class="shadow sm:rounded-md sm:overflow-hidden absolute" style="width: 500px;">
+            <div class="shadow sm:rounded-md sm:overflow-hidden absolute body" style="width: 500px;">
                   <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                        <div class="grid grid-cols-3 gap-6">
+                        <div class="grid gap-6">
                               <div class="col-span-3 sm:col-span-2">  
                               <form action="/addvehicle" method="POST">
                                     <fieldset>
