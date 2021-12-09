@@ -32,7 +32,7 @@
                   <input type="number" id="vMileage" name="vMileage" value="<%=myVehicles[0].vMileage %>">
                   <br><br>
                   <label for="vStillUsing">Still Using?</label>
-                  <input type="checkbox" id="vStillUsing" name="vStillUsing" value="<%=myVehicles[0].vStillUsing %>"> Checked for Yes
+                  <input type="checkbox" id="vStillUsing" name="vStillUsing" value="<%=myVehicles[0].vStillUsing == "Y" ? "checked" : "" %>"> Checked for Yes
                   <br><br>
                   <button type="submit">Save Vehicle</button>
                   <button type="Cancel">Cancel</button>
