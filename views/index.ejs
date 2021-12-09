@@ -6,96 +6,96 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>Home</title>
-    <style>
-        footer {
-           position: fixed;
-           left: 0;
-           bottom: 0;
-           width: 100%;
-           background-color: white;
-           color: rgb(126, 123, 118);
-           text-align: center;
-           height: 15vh;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <title>Home</title>
+        <style>
+            footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            color: rgb(126, 123, 118);
+            text-align: center;
+            height: 15vh;
+            }
+            
+            header{
+                height: 10vh;
+            }
+
+
+            .body {
+                margin-top: 5vh;
+                display: flex;
+                justify-content: center;
+                justify-content: center;
+                align-items: stretch;
+            }
+
+            section div {
+                flex: 1;
+                background-color: lightgray;
+                height: 50vh;
+                margin-right: 5vh;
+            }
+
+            section div:first-child {
+                margin-left: 5vh;
+            }
+
+            span {
+                display: flex;
+                flex-flow: column wrap;
+            }
+
+            span div {
+                flex: 1;
+            }
+
+            span div:first-child {
+                margin-top: 1vh;
+            }
+
+            </style>
+    </head>
+    <body background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
+        <header class="pl-16 p-4" style="background-color: #002E5D;">
+            <h1 class="font-normal-light text-white text-center text-4xl align-middle" style="font-weight: 300 !important;">Group Project 3</h1>
+            <nav class="font-normal-light text-white text-right"><a href="/displayvehicle">Display Vehicles</a></nav>
+        </header>
+        <section class="body">
+            <div>
+                Matt Bleazard
+            </div>
+            <div>
+                Adam Bonny
+            </div>
+            <div>
+                Adam Gao
+            </div>
+            <div>
+                Bryson Shanklin
+            </div>
+            <div>
+                David Hamblin
+            </div>
+            <div>
+                Garrett Sackley
+            </div>
+        </section>
         
-        header{
-            height: 10vh;
-        }
-
-
-        .body {
-            margin-top: 5vh;
-            display: flex;
-            justify-content: center;
-            justify-content: center;
-            align-items: stretch;
-        }
-
-        section div {
-            flex: 1;
-            background-color: lightgray;
-            height: 50vh;
-            margin-right: 5vh;
-        }
-
-        section div:first-child {
-            margin-left: 5vh;
-        }
-
-        span {
-            display: flex;
-            flex-flow: column wrap;
-        }
-
-        span div {
-            flex: 1;
-        }
-
-        span div:first-child {
-            margin-top: 1vh;
-        }
-
-        </style>
-</head>
-<body background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
-    <header class="pl-16 p-4" style="background-color: #002E5D;">
-        <h1 class="font-normal-light text-white text-center text-4xl align-middle" style="font-weight: 300 !important;">Group Project 3</h1>
-        <nav class="font-normal-light text-white text-right"><a href="/displayvehicle">Display Vehicles</a></nav>
-    </header>
-    <section class="body">
-        <div>
-            Matt Bleazard
-        </div>
-        <div>
-            Adam Bonny
-        </div>
-        <div>
-            Adam Gao
-        </div>
-        <div>
-            Bryson Shanklin
-        </div>
-        <div>
-            David Hamblin
-        </div>
-        <div>
-            Garrett Sackley
-        </div>
-    </section>
-    
-    <footer>
-        <span class="align-middle">
-            <div>Contact</div>
-            <div>Call or Text: 801-422-4636 </div>
-            <div class="block">Email:<a href="mailto:weluvkars@gmail.com"> weluvkars@gmail.com</a></div>
-            <div>Copyright © Team Amazing 2021</div>
-        </span>
-    </footer>
-    
-</body>
+        <footer>
+            <span class="align-middle">
+                <div>Contact</div>
+                <div>Call or Text: 801-422-4636 </div>
+                <div>Email:<a href="mailto:weluvkars@gmail.com"> weluvkars@gmail.com</a></div>
+                <div>Copyright © Team Amazing 2021</div>
+            </span>
+        </footer>
+        
+    </body>
 </html>

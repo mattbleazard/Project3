@@ -14,7 +14,7 @@
         <title>Vehicle Inventory</title>
         <style>
             footer {
-                position: fixed;
+                position: block;
                 left: 0;
                 bottom: 0;
                 width: 100%;
@@ -22,6 +22,11 @@
                 color: rgb(126, 123, 118);
                 text-align: center;
                 height: 15vh;
+            }
+
+            button {
+                margin-left: 5vh;
+                margin-bottom: 5vh;
             }
         </style>
     </head>
@@ -33,14 +38,14 @@
         <div class="flex flex-col" style="width: 900px; margin: auto auto;">
             <h1 class="font-bold text-gray-900 text-5xl mb-8 mt-8 place-self-center">Vehicle Inventory System</h1>
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Delete</span>
-                                  </th>
+                                </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Year</th>
@@ -79,12 +84,13 @@
                                 <% } %>
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
+            <form action="/addvehicle" method="GET">
+                <button type="submit" class="text-white bg-indigo-500 px-6 py-3 rounded-lg mt-5 shadow-md hover:bg-indigo-700">Add Vehicle</button>
+            </form>
         </div>
-        <form action="/addvehicle" method="GET">
-            <button type="submit" class="text-white bg-indigo-500 px-6 py-3 rounded-lg mt-5 shadow-md hover:bg-indigo-700">Add Vehicle</button>
-        </form>
         <footer>
             <span class="align-middle">
                 <div>Contact</div>
