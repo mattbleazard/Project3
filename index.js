@@ -34,7 +34,7 @@ app.get("/displayvehicle", (req, res) => {
 
 // Edit a record (24.9)
 app.get("/editvehicle/:id", (req, res) => {
-    knex.select().from("Vehicle", req.params.id).then(vehicle => {
+    knex("Vehicle").where("vehicle_id", req.params.id).then(vehicle => {
         res.render("editVehicle", {myVehicles: vehicle});
     });
 });

@@ -18,24 +18,27 @@
 </head>
 <body>
       <form action="/addvehicle" method="POST">
-            <label for="vDescription">Enter Vehicle Description:</label>
-            <input type="text" id="vDescription" name="vDescription">
-            <br><br>
-            <label for="vType">Enter Vehicle Type:</label>
-            <input id="rCar" type="radio" value="C" name="vType" checked/>Car
-            <input id="rTruck" type="radio" value="T" name="vType"/>Truck
-            <input id="rMotorcycle" type="radio" value="M" name="vType"/>Motorcycle
-            <br>
-            <label for="vYear">Enter Vehicle Year:</label>
-            <input type="number" id="vYear" name="vYear" min=1950>
-            <br><br>
-            <label for="vMileage">Enter Vehicle Mileage:</label>
-            <input type="number" id="vMileage" name="vMileage">
-            <br><br>
-            <label for="vStillUsing">Still Using?</label>
-            <input type="checkbox" id="vStillUsing" name="vStillUsing" value="Y" checked> Checked for Yes
-            <br><br>
-            <button type="submit">Save Vehicle</button>
+            <fieldset style="width: 0px;">
+                <label for="vDescription">Enter Vehicle Description:</label>
+                <input type="text" id="vDescription" name="vDescription">
+                <br><br>
+                <label for="vType">Enter Vehicle Type:</label>
+                <input id="rCar" type="radio" value="C" name="vType" checked/>Car
+                <input id="rTruck" type="radio" value="T" name="vType"/>Truck
+                <input id="rMotorcycle" type="radio" value="M" name="vType"/>Motorcycle
+                <br>
+                <label for="vYear">Enter Vehicle Year:</label>
+                <input type="number" id="vYear" name="vYear" min=1950>
+                <br><br>
+                <label for="vMileage">Enter Vehicle Mileage:</label>
+                <input type="number" id="vMileage" name="vMileage">
+                <br><br>
+                <label for="vStillUsing">Still Using?</label>
+                <input type="radio" id="Y" name="vStillUsing" value="Y" checked/>Yes
+                <input type="radio" id="N" name="vStillUsing" value="N">No 
+                <br><br>
+                <button type="submit">Save Vehicle</button>
+            </fieldset>
       </form>
       <form action="/displayVehicle" method="get" style="display: inline-block">
             <button type="submit">Cancel</button>
