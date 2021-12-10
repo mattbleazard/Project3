@@ -33,7 +33,8 @@
 
                   .body {
                         margin-top: 1vh;
-                        left:10%;
+                        margin:auto;
+                        width: 33%;
                   }
 
                   [ariaReadOnly] {
@@ -41,8 +42,8 @@
                   }
             </style>
             <script>
-                  if(document.getElementById("rBike").checked == true){
-                        document.getElementById("vMileage").ariaReadOnly = true;
+                  if(document.getElementById("rBike").checked){
+                        document.getElementById("vMileage").readOnly;
                   };
             </script>
       </head>
@@ -51,9 +52,9 @@
                   <h1 class="font-normal-light text-white text-center text-4xl align-middle" style="font-weight: 300 !important;">Group Project 3</h1>
                   <nav class="font-normal-light text-white text-right"><a href="/">Home</a></nav>
             </header>
-            <div class="shadow sm:rounded-md sm:overflow-hidden absolute body" style="width: 500px;">
+            <div class="shadow sm:rounded-md sm:overflow-hidden absolute body">
                   <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                        <div class="grid gap-6">
+                        <div class="grid">
                               <div class="col-span-3 sm:col-span-2">  
                               <form action="/addvehicle" method="POST">
                                     <fieldset>
@@ -78,7 +79,7 @@
                                     <br><br>
                                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                           <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save Vehicle</button>
-                                                <a href="/displayVehicle">Cancel</a>
+                                                <a href="/displayVehicle" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</a>
                                           </button>
                                     </form>
                                     </div>
