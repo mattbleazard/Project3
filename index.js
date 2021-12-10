@@ -2,6 +2,7 @@
       IS 303 Professor Hilton Section 001
       Project 3 Vehicle Inventory System  */
 
+//setting variables
 const portNum = process.env.PORT || 3000;
 let express = require('express');
 let path = require('path');
@@ -43,13 +44,13 @@ app.post("/editVehicle", (req, res) => {
 });
 
 //Add a Record (24.10)
-app.get("/addvehicle", (req, res) => {
+app.get("/addVehicle", (req, res) => {
     knex.select().from("Vehicle").then(vData => {
         res.render("addVehicle", {myVehicles : vData});
     });
 });
 
-app.post("/addvehicle", (req, res) => {
+app.post("/addVehicle", (req, res) => {
     knex("Vehicle").insert({
         vDescription: req.body.vDescription, 
         vType: req.body.vType, 
@@ -66,7 +67,7 @@ app.post("/deleteVehicle/:id", (req, res) => {
     knex("Vehicle").where("vehicle_id", req.params.id).del().then(myVehicles => {
         res.redirect("/displayvehicle");
     }).catch(err => {
-        console.log(err);
-        res.status(500).json({err});
+        console.log(err); //display err to the console log
+        res.status(500).json({err}); //return a 500 status and the json of the err
     })
 }); 

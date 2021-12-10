@@ -92,17 +92,19 @@
             </script>
       </head>
       <body class="bg-gray-300" background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
+            <!-- Header -->
             <header class="p-4">
                   <h1 class="font-bold text-white text-center text-4xl align-middle">Group Project 3</h1>
                   <nav class="mt-4 text-white text-center"><a href="/" class="p-2 transition hover: rounded-lg">Home</a></nav>
             </header>
             <br>
+            <!-- Body -->
             <div class="shadow sm:rounded-md sm:overflow-hidden mt-12" style="width: 500px; margin: auto;">
                   <div class="place-self-center text-2xl text-gray-700 font-bold p-3 text-center bg-white border-b-1 border-gray-300">
                         <span style="margin: 0 auto;">Add New Vehicle</span>
                   </div>
                   <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                        <form action="/addvehicle" method="POST">
+                        <form action="/addVehicle" method="POST">
                               <label for="vDescription" class="text-sm font-medium text-gray-700">Enter Vehicle Description:</label>
                               <input type="text" id="vDescription" name="vDescription" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600">
                               <br>
@@ -125,6 +127,7 @@
                               <br><br>
                         </div>
                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6" style="border-top: 0.5px solid rgb(209 213 219);">
+                              <!-- Save button that submits a new record and redirects to displayvehicle -->
                               <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white hover:bg-sky-700">Save Vehicle</button>
                               <a href="/displayVehicle" class="text-sm text-gray-500 pl-3 transition hover:text-gray-700">Cancel</a>
                               </fieldset>
@@ -132,6 +135,7 @@
                   </form>
             </div>
             <br><br><br><br><br><br>
+            <!-- Footer -->
             <footer class="py-4">
                   <span class="align-middle">
                       <div class="text-sky-800 font-bold">Contact us</div>
