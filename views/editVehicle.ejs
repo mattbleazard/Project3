@@ -54,6 +54,11 @@
                   button:hover {
                         background-color: #303d50 !important;
                   }
+
+                  [readonly] {
+                        background-color: #cfd7e2;
+                  }
+
             </style>
       </head>
       <body class="bg-gray-300" background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
@@ -67,7 +72,7 @@
                         <span style="margin: 0 auto;">Edit Vehicle</span>
                   </div>
                   <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                        <form action="/editvehicle" method="POST">
+                        <form action="/editVehicle" method="POST">
                               <input type="hidden" id="VehicleID" name="VehicleID" value="<%=myVehicles[0].vehicle_id %>">
                               <label for="vDescription" class="text-sm font-medium text-gray-700">Enter Vehicle Description:</label>
                               <input type="text" id="vDescription" name="vDescription" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vDescription %>">
@@ -83,7 +88,7 @@
                               <input type="number" id="vYear" name="vYear" min=1950 class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vYear %>">
                               <br>
                               <label for="vMileage" class="text-sm font-medium text-gray-700">Enter Vehicle Mileage:</label>
-                              <input type="number" id="vMileage" name="vMileage" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vMileage %>">
+                              <input type="number" id="vMileage" name="vMileage" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vMileage %>" <%= myVehicles[0].vType == "B" ? "readonly" : "" %>>
                               <br>
                               <label for="vStillUsing" class="text-base font-medium text-gray-900">Still Using?</label><br>
                               <input type="radio" id="Y" name="vStillUsing" value="Y" checked class="mt-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" <%= myVehicles[0].vStillUsing == "Y" ? "checked" : "" %> /><label for="Y" class="ml-3 text-sm font-medium text-gray-700">Yes</label><br>

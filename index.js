@@ -24,13 +24,13 @@ app.get("/displayvehicle", (req, res) => {
 
 
 // Edit a record (24.9)
-app.get("/editvehicle/:id", (req, res) => {
+app.get("/editVehicle/:id", (req, res) => {
     knex("Vehicle").where("vehicle_id", req.params.id).then(vehicle => {
         res.render("editVehicle", {myVehicles: vehicle});
     });
 });
 
-app.post("/editvehicle", (req, res) => {
+app.post("/editVehicle", (req, res) => {
     knex("Vehicle").where("vehicle_id", parseInt(req.body.VehicleID)).update({
         vDescription: req.body.vDescription,
         vType: req.body.vType,
@@ -62,7 +62,7 @@ app.post("/addvehicle", (req, res) => {
 });  
 
 //Delete a record (24.11)
-app.post("/deletevehicle/:id", (req, res) => {
+app.post("/deleteVehicle/:id", (req, res) => {
     knex("Vehicle").where("vehicle_id", req.params.id).del().then(myVehicles => {
         res.redirect("/displayvehicle");
     }).catch(err => {
