@@ -13,16 +13,36 @@
             <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
             <title>Edit Vehicle</title>
             <style>
+                  header {
+                        height: 10vh;
+                        background-color:#42536d;
+                        font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+                  }
+
                   footer {
                         position: fixed;
                         left: 0;
                         bottom: 0;
                         width: 100%;
-                        background-color: white;
-                        color: rgb(126, 123, 118);
+                        background-color: #b0a393;
+                        color: white;
                         text-align: center;
                         height: 15vh;
                   }
+
+                  span {
+                        display: flex;
+                        flex-flow: column wrap;
+                   }
+
+                  span div {
+                         flex: 1;
+                  }
+
+                  span div:first-child {
+                        margin-top: 1vh;
+                  }
+
                   form {
                   background-color: rgb(0, 153, 255);
                   }
