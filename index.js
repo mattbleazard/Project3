@@ -13,7 +13,7 @@ app.listen(portNum, () => console.log('The server is listening'));
 app.get('/', (req, res) => res.render('index'));
 
 //connect to database
-const knex = require(path.join(__dirname + 'knex/knex.js'));
+const knex = require(path.join(__dirname + '/knex/knex.js'));
 
 // retrieve data from table
 app.get("/displayvehicle", (req, res) => {
