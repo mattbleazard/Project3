@@ -14,7 +14,7 @@
         <title>Vehicle Inventory</title>
         <style>
             header {
-                background-color:#2c2b34;
+                background-color:#42536d;
                 font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
             }
 
@@ -45,13 +45,16 @@
             button {
                 margin-left: 5vh;
                 margin-bottom: 5vh;
-                background-color: rgba(66,83,109,255);
+                background-color: rgba(66,83,109,255) !important;
             }
 
             button:hover {
-                background-color: #272236;
+                background-color: #303d50 !important;
             }
 
+            nav a:hover {
+                background-color: #303d50;
+            }
             h1 {
                 color: #8d9c95;
             }
@@ -85,7 +88,7 @@
 
             .b {
                 color: white;
-                background-color: #272236;
+                background-color: #272236 !important;
             }
 
             .c {
@@ -105,9 +108,9 @@
         </style>
     </head>
     <body class="bg-gray-100" background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
-        <header class="p-4" style="background-color: #002E5D;">
+        <header class="p-4">
             <h1 class="font-bold text-white text-center text-4xl align-middle">Group Project 3</h1>
-            <nav class="mt-4 font-normal-light text-white text-center"><a href="/" class="p-2 transition hover:bg-sky-800 rounded-lg">Home</a></nav>
+            <nav class="mt-4 font-normal-light text-white text-center"><a href="/" class="p-2 transition hover: rounded-lg">Home</a></nav>
         </header>
         <div class="flex flex-col" style="width: 900px; margin: auto auto;">
             <h1 class="font-bold text-5xl mb-8 mt-8 place-self-center">Vehicle Inventory System</h1>
@@ -162,7 +165,7 @@
                 </div>
             </div>
             <form action="/addvehicle" method="GET">
-                <button type="submit" class="text-white bg-sky-600 px-6 py-3 rounded-lg mt-4 mb-4 shadow-md transition hover:bg-sky-800">Add Vehicle</button>
+                <button type="submit" class="text-white px-6 py-3 rounded-lg mt-4 mb-4 shadow-md hover:bg-sky-800">Add Vehicle</button>
             </form>
         </div>
         <footer class="py-4">

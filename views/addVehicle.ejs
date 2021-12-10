@@ -58,6 +58,25 @@
                   input:focus {
                         border: 2px solid rgb(14 165 233);
                   }
+
+                  header {
+                        background-color:#42536d;
+                        font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+                  }
+
+                  nav a:hover {
+                        background-color: #303d50;
+                  }
+
+                  button {
+                        margin-left: 5vh;
+                        margin-bottom: 5vh;
+                        background-color: rgba(66,83,109,255) !important;
+                  }
+
+                  button:hover {
+                        background-color: #303d50 !important;
+                  }
             </style>
             <script src="https://cdn.tailwindcss.com"></script>
             <script>
@@ -67,9 +86,9 @@
             </script>
       </head>
       <body class="bg-gray-300" background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
-            <header class="p-4" style="background-color: #002E5D;">
+            <header class="p-4">
                   <h1 class="font-bold text-white text-center text-4xl align-middle">Group Project 3</h1>
-                  <nav class="mt-4 text-white text-center"><a href="/" class="p-2 transition hover:bg-sky-800 rounded-lg">Home</a></nav>
+                  <nav class="mt-4 text-white text-center"><a href="/" class="p-2 transition hover: rounded-lg">Home</a></nav>
             </header>
             <br>
             <div class="shadow sm:rounded-md sm:overflow-hidden mt-12" style="width: 500px; margin: auto;">
@@ -100,7 +119,7 @@
                               <br><br>
                         </div>
                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6" style="border-top: 0.5px solid rgb(209 213 219);">
-                              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">Save Vehicle</button>
+                              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white hover:bg-sky-700">Save Vehicle</button>
                               <a href="/displayVehicle" class="text-sm text-gray-500 pl-3 transition hover:text-gray-700">Cancel</a>
                               </fieldset>
                         </div>
