@@ -10,9 +10,21 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+            <script src="https://cdn.tailwindcss.com"></script>
             <title>Edit Vehicle</title>
             <style>
+                  input:focus, textarea:focus, select:focus{
+                        outline: none;
+                  }
+
+                  input:focus {
+                        border: 2px solid #002e5d;
+                  }
+
+                  input[name="vType"] {
+                        margin-left: 4vh;
+                  }
+
                   footer {
                         position: fixed;
                         left: 0;
@@ -23,57 +35,57 @@
                         text-align: center;
                         height: 15vh;
                   }
-                  form {
-                  background-color: rgb(0, 153, 255);
-                  }
             </style>
       </head>
       <body class="bg-gray-300" background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
-            <header class="pl-16 p-4" style="background-color: #002E5D;">
-                  <h1 class="font-normal-light text-white text-center text-4xl align-middle" style="font-weight: 300 !important;">Group Project 3</h1>
-                  <nav class="font-normal-light text-white text-right"><a href="/">Home</a></nav>
+            <header class="p-4" style="background-color: #002E5D;">
+                  <h1 class="font-bold text-white text-center text-4xl align-middle">Group Project 3</h1>
+                  <nav class="mt-4 text-white text-center"><a href="/" class="p-2 transition hover:bg-sky-800 rounded-lg">Home</a></nav>
             </header>
-            <div class="shadow sm:rounded-md sm:overflow-hidden" style="width: 500px;"> 
-                       <div class="grid grid-cols-3 gap-6">
-                              <div class="col-span-3 sm:col-span-2">  
-                                    <form action="/editvehicle" method="POST">
-                                          <fieldset style="width: 0px;">
-                                                <legend>Edit Vehicle:</legend>
-                                                <input type="hidden" id="VehicleID" name="VehicleID" value="<%=myVehicles[0].vehicle_id %>">
-                                                <label for="vDescription" class="text-sm font-medium text-gray-700">Enter Vehicle Description:</label>
-                                                <input type="text" id="vDescription" name="vDescription" value="<%=myVehicles[0].vDescription %>">
-                                                <br><br>
-                                                <label for="vType"class="text-base font-medium text-gray-900">Enter Vehicle Type:</label> <br>
-                                                <input id="rCar" type="radio" value="C" name="vType" <%if (myVehicles[0].vType == "C") {%> checked <%}%>/>Car <br>
-                                                <input id="rTruck" type="radio" value="T" name="vType" <%if (myVehicles[0].vType == "T") {%> checked <%}%>/>Truck <br>
-                                                <input id="rBike" type="radio" value="B" name="vType" <%if (myVehicles[0].vType == "B") {%> checked <%}%>/>Bike <br>
-                                                <input id="rMotorcycle" type="radio" value="M" name="vType" <%if (myVehicles[0].vType == "M") {%> checked <%}%>/>Motorcycle <br>
-                                                <br>
-                                                <label for="vYear"class="text-sm font-medium text-gray-700">Enter Vehicle Year:</label>
-                                                <input type="number" id="vYear" name="vYear" min=1950 value="<%=myVehicles[0].vYear %>">
-                                                <br><br>
-                                                <label for="vMileage"class="text-sm font-medium text-gray-700">Enter Vehicle Mileage:</label>
-                                                <input type="number" id="vMileage" name="vMileage" value="<%=myVehicles[0].vMileage %>" <%if (myVehicles[0].vType == "B") {%> readonly <%}%>>
-                                                <br><br>
-                                                <label for="vStillUsing"class="text-base font-medium text-gray-900">Still Using?</label> <br>
-                                                <input type="radio" id="Y" name="vStillUsing" value="Y" <%if (myVehicles[0].vStillUsing == "Y") {%> checked <%}%>/>Yes <br>
-                                                <input type="radio" id="N" name="vStillUsing" value="N" <%if (myVehicles[0].vStillUsing == "N") {%> checked <%}%>>No <br>
-                                                <br><br>
-                                                <button type="submit">Save Vehicle</button>
-                                                <button type="Cancel">Cancel</button>
-                                          </fieldset>
-                                    </form>
+            <br>
+            <div class="shadow sm:rounded-md sm:overflow-hidden mt-12" style="width: 500px; margin: auto;">
+                  <div class="place-self-center text-2xl text-gray-700 font-bold p-3 text-center bg-white border-b-1 border-gray-300">
+                        <span style="margin: 0 auto;">Edit Vehicle</span>
+                  </div>
+                  <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                        <form action="/editvehicle" method="POST">
+                              <input type="hidden" id="VehicleID" name="VehicleID" value="<%=myVehicles[0].vehicle_id %>">
+                              <label for="vDescription" class="text-sm font-medium text-gray-700">Enter Vehicle Description:</label>
+                              <input type="text" id="vDescription" name="vDescription" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vDescription %>">
+                              <br>
+                              <div name="radio_buttons" class="p-2 bg-sky-50 rounded-lg mb-4">
+                                    <label for="vType" class="text-base font-medium text-gray-900">Enter Vehicle Type:</label><br>
+                                    <input id="rCar" type="radio" value="C" name="vType" <%= myVehicles[0].vType == "C" ? "checked" : "" %>/><label for="rCar" class="ml-3 text-sm font-medium text-gray-700">Car</label>
+                                    <input id="rTruck" type="radio" value="T" name="vType" <%= myVehicles[0].vType == "T" ? "checked" : "" %> /><label for="rTruck" class="ml-3 text-sm font-medium text-gray-700">Truck</label>
+                                    <input id="rBike" type="radio" value="B" name="vType" <%= myVehicles[0].vType == "B" ? "checked" : "" %> /><label for="rBike" class="ml-3 text-sm font-medium text-gray-700">Bike</label>
+                                    <input id="rMotorcycle" type="radio" value="M" name="vType" <%= myVehicles[0].vType == "M" ? "checked" : "" %>/><label for="rMotorcycle" class="ml-3 text-sm font-medium text-gray-700">Motorcycle</label>
                               </div>
+                              <label for="vYear" class="text-sm font-medium text-gray-700">Enter Vehicle Year:</label>
+                              <input type="number" id="vYear" name="vYear" min=1950 class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vYear %>">
+                              <br>
+                              <label for="vMileage" class="text-sm font-medium text-gray-700">Enter Vehicle Mileage:</label>
+                              <input type="number" id="vMileage" name="vMileage" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vMileage %>">
+                              <br>
+                              <label for="vStillUsing" class="text-base font-medium text-gray-900">Still Using?</label><br>
+                              <input type="radio" id="Y" name="vStillUsing" value="Y" checked class="mt-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" <%= myVehicles[0].vStillUsing == "Y" ? "checked" : "" %> /><label for="Y" class="ml-3 text-sm font-medium text-gray-700">Yes</label><br>
+                              <input type="radio" id="N" name="vStillUsing" value="N" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" <%= myVehicles[0].vStillUsing == "N" ? "checked" : "" %> /><label for="N" class="ml-3 text-sm font-medium text-gray-700">No</label>
+                              <br><br>
                         </div>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6" style="border-top: 0.5px solid rgb(209 213 219);">
+                              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">Save Vehicle</button>
+                              <a href="/displayVehicle" class="text-sm text-gray-500 pl-3 transition hover:text-gray-700">Cancel</a>
+                        </div>
+                        </form>
                   </div>
             </div>
-            <footer>
+            <footer class="py-4">
                   <span class="align-middle">
-                  <div>Contact</div>
-                  <div>Call or Text: 801-422-4636 </div>
-                  <div class="block">Email:<a href="mailto:weluvkars@gmail.com"> weluvkars@gmail.com</a></div>
-                  <div>Copyright © Team Amazing 2021</div>
+                      <div class="text-sky-800 font-bold">Contact us</div>
+                      <div>
+                          <p class="text-gray-900">Call or Text: 801-422-4636 --- Email:<a href="mailto:weluvkars@gmail.com" class="text-sky-600 hover:text-sky-800"> weluvkars@gmail.com</a></p>
+                      </div>
+                      <div class="text-sm text-gray-500">Copyright © Team Amazing 2021</div>
                   </span>
-            </footer>
+              </footer>
       </body>
 </html>

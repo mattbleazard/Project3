@@ -70,7 +70,6 @@ app.post("/addvehicle", (req, res) => {
     })
 });  
 
-
 //Delete a record (24.11)
 app.post("/deletevehicle/:id", (req, res) => {
     knex("Vehicle").where("vehicle_id", req.params.id).del().then(myVehicles => {

@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
         <title>Vehicle Inventory</title>
         <style>
             footer {
@@ -31,9 +31,9 @@
         </style>
     </head>
     <body class="bg-gray-100" background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
-        <header class="pl-16 p-4" style="background-color: #002E5D;">
-            <h1 class="font-normal-light text-white text-center text-4xl align-middle" style="font-weight: 300 !important;">Group Project 3</h1>
-            <nav class="font-normal-light text-white text-right"><a href="/">Home</a></nav>
+        <header class="p-4" style="background-color: #002E5D;">
+            <h1 class="font-bold text-white text-center text-4xl align-middle">Group Project 3</h1>
+            <nav class="mt-4 font-normal-light text-white text-center"><a href="/" class="p-2 transition hover:bg-sky-800 rounded-lg">Home</a></nav>
         </header>
         <div class="flex flex-col" style="width: 900px; margin: auto auto;">
             <h1 class="font-bold text-gray-900 text-5xl mb-8 mt-8 place-self-center">Vehicle Inventory System</h1>
@@ -75,7 +75,7 @@
                                     <td class="px-6 py-4 flex justify-center">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full py-0.5 <%= myVehicles[iCount].vStillUsing == "Y" ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800" %>"><%= myVehicles[iCount].vStillUsing %></span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-indigo-600 hover:text-indigo-900">
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-sky-600 hover:text-sky-900">
                                         <form action="/editvehicle/<%= myVehicles[iCount].vehicle_id %>" method="GET">
                                             <input type="submit" value="Edit" name="edit" class="bg-white">
                                         </form>
@@ -88,15 +88,16 @@
                 </div>
             </div>
             <form action="/addvehicle" method="GET">
-                <button type="submit" class="text-white bg-indigo-500 px-6 py-3 rounded-lg mt-5 shadow-md hover:bg-indigo-700">Add Vehicle</button>
+                <button type="submit" class="text-white bg-sky-600 px-6 py-3 rounded-lg mt-4 mb-4 shadow-md transition hover:bg-sky-800">Add Vehicle</button>
             </form>
         </div>
-        <footer>
+        <footer class="py-4">
             <span class="align-middle">
-                <div>Contact</div>
-                <div>Call or Text: 801-422-4636 </div>
-                <div class="block">Email:<a href="mailto:weluvkars@gmail.com"> weluvkars@gmail.com</a></div>
-                <div>Copyright © Team Amazing 2021</div>
+                <div class="text-sky-800 font-bold">Contact us</div>
+                <div>
+                    <p class="text-gray-900">Call or Text: 801-422-4636 --- Email:<a href="mailto:weluvkars@gmail.com" class="text-sky-600 hover:text-sky-800"> weluvkars@gmail.com</a></p>
+                </div>
+                <div class="text-sm text-gray-500">Copyright © Team Amazing 2021</div>
             </span>
         </footer>
     </body>
