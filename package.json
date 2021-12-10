@@ -4,7 +4,7 @@
   "description": "Vehicle Inventory System",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Matt Bleazard, Adam Bonny, Adam Gao, Bryson Shanklin, David Hamblin, Garrett Sackley",
   "license": "ISC",

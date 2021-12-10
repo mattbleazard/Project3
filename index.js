@@ -2,7 +2,7 @@
       IS 303 Professor Hilton Section 001
       Project 3 Vehicle Inventory System  */
 
-const portNum = 3000;
+const portNum = process.env.PORT || 3000;
 let express = require('express');
 let path = require('path');
 let app = express();
@@ -13,16 +13,7 @@ app.listen(portNum, () => console.log('The server is listening'));
 app.get('/', (req, res) => res.render('index'));
 
 //connect to database
-const knex = require("knex")({
-      client: "pg",
-      connection: {
-          host : "localhost",
-          user : "postgres",
-          password : "Iloveis303", //Make sure to change your password locally
-          database : "postgres",
-          port : 5432
-      }
-  });
+const knex = require(path.join(__dirname + 'knex/knex.js'));
 
 // retrieve data from table
 app.get("/displayvehicle", (req, res) => {
