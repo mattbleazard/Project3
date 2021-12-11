@@ -1,8 +1,8 @@
-/*  Team Members: Adam Bonny, Adam Gao, Bryson Shanklin, Garrett Sackley, David Hamblin, Matt Bleazard
+/*  Team Members: Adam Bonny, Adam Gao, Bryson Shanklin, Garrett Sackley, Matt Bleazard
       IS 303 Professor Hilton Section 001
       Project 3 Vehicle Inventory System  */
 
-//setting variables
+// Setting variables and app environment
 const portNum = process.env.PORT || 3000;
 let express = require('express');
 let path = require('path');
@@ -10,13 +10,16 @@ let app = express();
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 
-app.listen(portNum, () => console.log('The server is listening'));
-app.get('/', (req, res) => res.render('index'));
-
-//connect to database
+// Connection to the database
 const knex = require(path.join(__dirname + '/knex/knex.js'));
 
-// retrieve data from table
+// Log to the console when the app is running
+app.listen(portNum, () => console.log('The server is listening'));
+
+// Route for the index page
+app.get('/', (req, res) => res.render('index'));
+
+// Display data from vehicle database
 app.get("/displayvehicle", (req, res) => {
       knex.select().from("Vehicle").then(vData => {
           res.render("displayVehicle", {myVehicles : vData});
@@ -24,7 +27,7 @@ app.get("/displayvehicle", (req, res) => {
   });
 
 
-// Edit a record (24.9)
+// Edit a record
 app.get("/editVehicle/:id", (req, res) => {
     knex("Vehicle").where("vehicle_id", req.params.id).then(vehicle => {
         res.render("editVehicle", {myVehicles: vehicle});
@@ -43,7 +46,7 @@ app.post("/editVehicle", (req, res) => {
     });
 });
 
-//Add a Record (24.10)
+//Add a Record
 app.get("/addVehicle", (req, res) => {
     knex.select().from("Vehicle").then(vData => {
         res.render("addVehicle", {myVehicles : vData});
@@ -62,7 +65,7 @@ app.post("/addVehicle", (req, res) => {
     })
 });  
 
-//Delete a record (24.11)
+//Delete a record
 app.post("/deleteVehicle/:id", (req, res) => {
     knex("Vehicle").where("vehicle_id", req.params.id).del().then(myVehicles => {
         res.redirect("/displayvehicle");

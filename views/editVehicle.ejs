@@ -1,5 +1,5 @@
 <!--  
-    Team Members: Adam Bonny, Adam Gao, Bryson Shanklin, Garrett Sackley, David Hamblin, Matt Bleazard
+    Team Members: Adam Bonny, Adam Gao, Bryson Shanklin, Garrett Sackley, Matt Bleazard
     IS 303 Professor Hilton Section 001
     Project 3 Vehicle Inventory System  
 -->
@@ -10,16 +10,19 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <script src="https://cdn.tailwindcss.com"></script>
             <title>Edit Vehicle</title>
+            <!-- CSS Framework: classes apply the styling, see tailwindcss.com for a documentation of the classes used -->
+            <script src="https://cdn.tailwindcss.com"></script>
             <style>
+                  /* Header */
+                  header {
+                        font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+                  }
+
+                  /* Edit Form */
                   body {
                         position: relative;
                         min-height: 100vh;
-                  }
-
-                  .page-container {
-                        padding-bottom: 20vh;
                   }
 
                   input:focus, textarea:focus, select:focus{
@@ -34,48 +37,30 @@
                         margin-left: 4vh;
                   }
 
-                  footer {
-                        position: absolute;
-                        bottom: 0;
-                        width: 100%;
-                        background-color: white;
-                        color: white;
-                        text-align: center;
-                        height: 15vh;
-                  }
-
-                  header {
-                        background-color:#42536d;
-                        font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
-                        padding: 1rem;
-                  }
-
-                  nav a:hover {
-                        background-color: #303d50;
-                  }
-
                   button {
                         margin-left: 5vh;
                         margin-bottom: 5vh;
-                        background-color: rgba(66,83,109,255) !important;
-                  }
-
-                  button:hover {
-                        background-color: #303d50 !important;
                   }
 
                   [readonly] {
                         background-color: #cfd7e2;
                   }
 
+                  /* Footer */
+                  footer {
+                        position: relative;
+                        bottom: 0;
+                  }
             </style>
       </head>
       <body class="bg-gray-300" background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
-            <div class="page-container">
+            <div class="mb-6">
                   <!-- Header -->
-                  <header>
+                  <header class="bg-[#42536d] p-4">
                         <h1 class="font-bold text-white text-center text-4xl align-middle">Group Project 3</h1>
-                        <nav class="mt-4 text-white text-center"><a href="/" class="p-2 transition hover: rounded-lg">Home</a></nav>
+                        <nav class="mt-4 text-white text-center">
+                              <a href="/" class="p-2 transition hover:bg-[#303d50] rounded-lg">Home</a>
+                        </nav>
                   </header>
                   <br>
                   <!-- body -->
@@ -84,41 +69,40 @@
                               <span style="margin: 0 auto;">Edit Vehicle</span>
                         </div>
                         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                              <form action="/editVehicle" method="POST">
-                                    <input type="hidden" id="VehicleID" name="VehicleID" value="<%=myVehicles[0].vehicle_id %>">
-                                    <label for="vDescription" class="text-sm font-medium text-gray-700">Enter Vehicle Description:</label>
-                                    <input type="text" id="vDescription" name="vDescription" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vDescription %>">
-                                    <br>
-                                    <div name="radio_buttons" class="p-2 bg-sky-50 rounded-lg mb-4">
-                                          <label for="vType" class="text-base font-medium text-gray-900">Enter Vehicle Type:</label><br>
-                                          <input id="rCar" type="radio" value="C" name="vType" <%= myVehicles[0].vType == "C" ? "checked" : "" %>/><label for="rCar" class="ml-3 text-sm font-medium text-gray-700">Car</label>
-                                          <input id="rTruck" type="radio" value="T" name="vType" <%= myVehicles[0].vType == "T" ? "checked" : "" %> /><label for="rTruck" class="ml-3 text-sm font-medium text-gray-700">Truck</label>
-                                          <input id="rBike" type="radio" value="B" name="vType" <%= myVehicles[0].vType == "B" ? "checked" : "" %> /><label for="rBike" class="ml-3 text-sm font-medium text-gray-700">Bike</label>
-                                          <input id="rMotorcycle" type="radio" value="M" name="vType" <%= myVehicles[0].vType == "M" ? "checked" : "" %>/><label for="rMotorcycle" class="ml-3 text-sm font-medium text-gray-700">Motorcycle</label>
-                                    </div>
-                                    <label for="vYear" class="text-sm font-medium text-gray-700">Enter Vehicle Year:</label>
-                                    <input type="number" id="vYear" name="vYear" min=1950 class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vYear %>">
-                                    <br>
-                                    <label for="vMileage" class="text-sm font-medium text-gray-700">Enter Vehicle Mileage:</label>
-                                    <input type="number" id="vMileage" name="vMileage" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vMileage %>" <%= myVehicles[0].vType == "B" ? "readonly" : "" %>>
-                                    <br>
-                                    <label for="vStillUsing" class="text-base font-medium text-gray-900">Still Using?</label><br>
-                                    <input type="radio" id="Y" name="vStillUsing" value="Y" checked class="mt-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" <%= myVehicles[0].vStillUsing == "Y" ? "checked" : "" %> /><label for="Y" class="ml-3 text-sm font-medium text-gray-700">Yes</label><br>
-                                    <input type="radio" id="N" name="vStillUsing" value="N" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" <%= myVehicles[0].vStillUsing == "N" ? "checked" : "" %> /><label for="N" class="ml-3 text-sm font-medium text-gray-700">No</label>
-                                    <br><br>
+                        <form action="/editVehicle" method="POST">
+                              <input type="hidden" id="VehicleID" name="VehicleID" value="<%=myVehicles[0].vehicle_id %>">
+                              <label for="vDescription" class="text-sm font-medium text-gray-700">Enter Vehicle Description:</label>
+                              <input type="text" id="vDescription" name="vDescription" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vDescription %>">
+                              <br>
+                              <div name="radio_buttons" class="p-2 bg-sky-50 rounded-lg mb-4">
+                                    <label for="vType" class="text-base font-medium text-gray-900">Enter Vehicle Type:</label><br>
+                                    <input id="rCar" type="radio" value="C" name="vType" <%= myVehicles[0].vType == "C" ? "checked" : "" %>/><label for="rCar" class="ml-3 text-sm font-medium text-gray-700">Car</label>
+                                    <input id="rTruck" type="radio" value="T" name="vType" <%= myVehicles[0].vType == "T" ? "checked" : "" %> /><label for="rTruck" class="ml-3 text-sm font-medium text-gray-700">Truck</label>
+                                    <input id="rBike" type="radio" value="B" name="vType" <%= myVehicles[0].vType == "B" ? "checked" : "" %> /><label for="rBike" class="ml-3 text-sm font-medium text-gray-700">Bike</label>
+                                    <input id="rMotorcycle" type="radio" value="M" name="vType" <%= myVehicles[0].vType == "M" ? "checked" : "" %>/><label for="rMotorcycle" class="ml-3 text-sm font-medium text-gray-700">Motorcycle</label>
                               </div>
-                              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6" style="border-top: 0.5px solid rgb(209 213 219);">
-                                    <!-- Save button -->
-                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">Save Vehicle</button>
-                                    <!-- Cancel button -->
-                                    <a href="/displayVehicle" class="text-sm text-gray-500 pl-3 transition hover:text-gray-700">Cancel</a>
-                              </div>
-                              </form>
+                              <label for="vYear" class="text-sm font-medium text-gray-700">Enter Vehicle Year:</label>
+                              <input type="number" id="vYear" name="vYear" min=1950 class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vYear %>">
+                              <br>
+                              <label for="vMileage" class="text-sm font-medium text-gray-700">Enter Vehicle Mileage:</label>
+                              <input type="number" id="vMileage" name="vMileage" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" value="<%=myVehicles[0].vMileage %>" <%= myVehicles[0].vType == "B" ? "readonly" : "" %>>
+                              <br>
+                              <label for="vStillUsing" class="text-base font-medium text-gray-900">Still Using?</label><br>
+                              <input type="radio" id="Y" name="vStillUsing" value="Y" checked class="mt-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" <%= myVehicles[0].vStillUsing == "Y" ? "checked" : "" %> /><label for="Y" class="ml-3 text-sm font-medium text-gray-700">Yes</label><br>
+                              <input type="radio" id="N" name="vStillUsing" value="N" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" <%= myVehicles[0].vStillUsing == "N" ? "checked" : "" %> /><label for="N" class="ml-3 text-sm font-medium text-gray-700">No</label>
+                              <br><br>
                         </div>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6" style="border-top: 0.5px solid rgb(209 213 219);">
+                              <!-- Save button -->
+                              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#42536d] hover:bg-[#303d50]">Save Vehicle</button>
+                              <!-- Cancel button -->
+                              <a href="/displayVehicle" class="text-sm text-gray-500 pl-3 transition hover:text-gray-700">Cancel</a>
+                        </div>
+                        </form>
                   </div>
             </div>
             <!-- Footer -->
-            <footer class="py-4">
+            <footer class="py-4 bg-white w-full text-center h-auto py-6">
                   <span class="align-middle">
                       <div class="text-sky-800 font-bold">Contact us</div>
                       <div>
