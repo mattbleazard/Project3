@@ -1,5 +1,5 @@
 <!--  
-    Team Members: Adam Bonny, Adam Gao, Bryson Shanklin, Garrett Sackley, David Hamblin, Matt Bleazard
+    Team Members: Adam Bonny, Adam Gao, Bryson Shanklin, Garrett Sackley, Matt Bleazard
     IS 303 Professor Hilton Section 001
     Project 3 Vehicle Inventory System  
 -->
@@ -10,25 +10,16 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"></script>
         <title>Vehicle Inventory</title>
+        <!-- CSS Framework: classes apply the styling, see tailwindcss.com for a documentation of the classes used -->
+        <script src="https://cdn.tailwindcss.com"></script>
         <style>
+            /* Header */
             header {
-                background-color:#42536d;
                 font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
             }
 
-            footer {
-                position: block;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background-color: white;
-                color: white;
-                text-align: center;
-                height: 15vh;
-            }
-
+            /* Vehicle Table */
             span {
                 display: flex;
                 flex-flow: column wrap;
@@ -45,135 +36,84 @@
             button {
                 margin-left: 5vh;
                 margin-bottom: 5vh;
-                background-color: rgba(66,83,109,255) !important;
             }
 
-            button:hover {
-                background-color: #303d50 !important;
-            }
-
-            nav a:hover {
-                background-color: #303d50;
-            }
-            h1 {
-                color: #8d9c95;
-            }
-
-            thead {
-                background-color: #89a0ae;
-            }
-
-            th {
-                color: white;
-            }
-
-            .description {
-                color: #42536d;
-            }
-
-
-            .delete {
-                color: #723636;
-            }
-
-            .yes { 
-                color: white;
-                background-color: #8d9c95;
-            }
-
-            .no {
-                color: white;
-                background-color: #e5c69a;
-            }
-
-            .b {
-                color: white;
-                background-color: #272236 !important;
-            }
-
-            .c {
-                color: white;
-                background-color: #89a0ae;
-            }
-
-            .t {
-                color: white;
-                background-color: #d5c9bd;
-            }
-
-            .m {
-                color: white;
-                background-color: #eccac1;
+            /* Footer */
+            footer {
+                position: relative;
+                bottom: 0;
             }
         </style>
     </head>
     <body class="bg-gray-100" background="https://my.byu.edu/uPortal/media/skins/universality/byu/images/body-linen.png">
         <!-- Header -->
-        <header class="p-4">
+        <header class="p-4 bg-[#42536d]">
             <h1 class="font-bold text-white text-center text-4xl align-middle">Group Project 3</h1>
-            <nav class="mt-4 font-normal-light text-white text-center"><a href="/" class="p-2 transition hover: rounded-lg">Home</a></nav>
+            <nav class="mt-4 font-normal-light text-white text-center">
+                <a href="/" class="p-2 transition hover:bg-[#303d50] rounded-lg">Home</a>
+            </nav>
         </header>
         <!-- Body -->
         <div class="flex flex-col" style="width: 900px; margin: auto auto;">
-            <h1 class="font-bold text-5xl mb-8 mt-8 place-self-center">Vehicle Inventory System</h1> <!-- Title for table -->
+            <h1 class="font-bold text-5xl mb-8 mt-8 place-self-center text-[#8d9c95]">Vehicle Inventory System</h1> <!-- Title for table -->
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead>
-                            <tr>
-                                <!-- Columns -->
-                                <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Delete</span> <!-- Delete button to the left -->
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white-500 uppercase tracking-wider">Description</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white-500 uppercase tracking-wider">Type</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white-500 uppercase tracking-wider">Year</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white-500 uppercase tracking-wider">Mileage</th>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white-500 uppercase tracking-wider">Still Using?</th>
-                                <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Edit</span> <!-- Edit button to the right -->
-                                  </th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <% for (let iCount = 0; iCount < myVehicles.length; iCount++) { %> <!-- Loop to get each database record -->
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <form action="/deletevehicle/<%= myVehicles[iCount].vehicle_id %>" method="POST"> <!-- Delete Button -->
-                                            <div class="border-red-400 rounded-md">
-                                                <input type="submit" value="Delete" name="Delete" class="bg-white text-sm font-medium delete hover:text-red-800">
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium description"><%= myVehicles[iCount].vDescription %></td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full py-0.5 <%= myVehicles[iCount].vType == "T" ? "t" : myVehicles[iCount].vType == "C" ? "c" : myVehicles[iCount].vType == "B" ? "b" : "m" %>"><%= myVehicles[iCount].vType %></span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm description"><%= myVehicles[iCount].vYear %></td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm description"><%= myVehicles[iCount].vMileage %></td>
-                                    <td class="px-6 py-4 flex justify-center">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full py-0.5 <%= myVehicles[iCount].vStillUsing == "Y" ? "yes" : "no" %>"><%= myVehicles[iCount].vStillUsing %></span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-sky-600 hover:text-sky-900">
-                                        <form action="/editVehicle/<%= myVehicles[iCount].vehicle_id %>" method="GET">
-                                            <input type="submit" value="Edit" name="edit" class="bg-white">
-                                        </form>
-                                    </td>
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-[#89a0ae]">
+                                <tr class="text-white">
+                                    <!-- Columns -->
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only">Delete</span> <!-- Delete button to the left -->
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white-500 uppercase tracking-wider">Description</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white-500 uppercase tracking-wider">Type</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white-500 uppercase tracking-wider">Year</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white-500 uppercase tracking-wider">Mileage</th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white-500 uppercase tracking-wider">Still Using?</th>
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only">Edit</span> <!-- Edit button to the right -->
+                                    </th>
                                 </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <% for (let iCount = 0; iCount < myVehicles.length; iCount++) { %> <!-- Loop to get each database record -->
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <form action="/deletevehicle/<%= myVehicles[iCount].vehicle_id %>" method="POST"> <!-- Delete Button -->
+                                                <div class="rounded-md">
+                                                    <input type="submit" value="Delete" name="Delete" class="bg-white text-sm font-medium text-[#723636] hover:text-red-800">
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#42536d]"><%= myVehicles[iCount].vDescription %></td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full py-0.5 text-white <%= myVehicles[iCount].vType == "T" ? "bg-[#d5c9bd]" : myVehicles[iCount].vType == "C" ? "bg-[#89a0ae]" : myVehicles[iCount].vType == "B" ? "bg-[#272236]" : "bg-[#eccac1]" %>"><%= myVehicles[iCount].vType %></span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm description"><%= myVehicles[iCount].vYear %></td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm description"><%= myVehicles[iCount].vMileage %></td>
+                                        <td class="px-6 py-4 flex justify-center">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full py-0.5 text-white <%= myVehicles[iCount].vStillUsing == "Y" ? "bg-[#8d9c95]" : "bg-[#e5c69a]" %>"><%= myVehicles[iCount].vStillUsing %></span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-sky-600 hover:text-sky-900">
+                                            <form action="/editVehicle/<%= myVehicles[iCount].vehicle_id %>" method="GET">
+                                                <input type="submit" value="Edit" name="edit" class="bg-white">
+                                            </form>
+                                        </td>
+                                    </tr>
                                 <% } %>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
             <!-- Button for adding a new record -->
             <form action="/addVehicle" method="GET">
-                <button type="submit" class="text-white px-6 py-3 rounded-lg mt-4 mb-4 shadow-md hover:bg-sky-800">Add Vehicle</button> 
+                <button type="submit" class="text-white px-6 py-3 rounded-lg mt-4 mb-4 shadow-md bg-[#42536d] hover:bg-[#303d50]">Add Vehicle</button> 
             </form>
         </div>
         <!-- Footer -->
-        <footer class="py-4">
+        <footer class="py-4 bg-white w-full text-center h-auto py-6">
             <span class="align-middle">
                 <div class="text-sky-800 font-bold">Contact us</div>
                 <div>
@@ -181,6 +121,6 @@
                 </div>
                 <div class="text-sm text-gray-500">Copyright © Team Amazing 2021</div>
             </span>
-        </footer>
+      </footer>
     </body>
 </html>    
