@@ -14,6 +14,16 @@
             <!-- CSS Framework: classes apply the styling, see tailwindcss.com for a documentation of the classes used -->
             <script src="https://cdn.tailwindcss.com"></script>
             <style>
+                  body {
+                        position: relative;
+                        min-height: 100vh;
+                  }
+
+                  .content-wrap {
+                        margin-bottom: calc(14vh + 2rem);
+                        width: 100vw;
+                  }
+
                   /* Header */
                   header {
                         font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
@@ -48,7 +58,7 @@
 
                   /* Footer */
                   footer {
-                        position: relative;
+                        position: absolute;
                         bottom: 0;
                   }
             </style>
@@ -64,7 +74,7 @@
                   </header>
                   <br>
                   <!-- body -->
-                  <div class="shadow sm:rounded-md sm:overflow-hidden mt-12" style="width: 500px; margin: auto;">
+                  <div class="shadow sm:rounded-md sm:overflow-hidden mt-12 content-wrap" style="width: 500px; margin: auto;">
                         <div class="place-self-center text-2xl text-gray-700 font-bold p-3 text-center bg-white border-b-1 border-gray-300">
                               <span style="margin: 0 auto;">Edit Vehicle</span>
                         </div>
@@ -102,7 +112,7 @@
                   </div>
             </div>
             <!-- Footer -->
-            <footer class="py-4 bg-white w-full text-center h-auto py-6">
+            <footer class="py-4 bg-white w-full text-center h-auto">
                   <span class="align-middle">
                       <div class="text-sky-800 font-bold">Contact us</div>
                       <div>

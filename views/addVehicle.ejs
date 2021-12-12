@@ -13,6 +13,16 @@
             <!-- CSS Framework: classes apply the styling, see tailwindcss.com for a documentation of the classes used -->
             <script src="https://cdn.tailwindcss.com"></script>
             <style>
+                  body {
+                        position: relative;
+                        min-height: 100vh;
+                  }
+
+                  .content-wrap {
+                        margin-bottom: calc(14vh + 2rem);
+                        width: 100vw;
+                  }
+
                   /* Header */
                   header {
                         font-family: "RooneySans-Medium", "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
@@ -70,7 +80,7 @@
 
                   /* Footer */
                   footer {
-                        position: relative;
+                        position: absolute;
                         bottom: 0;
                   }
             </style>
@@ -90,14 +100,14 @@
             </header>
             <br>
             <!-- Body -->
-            <div class="shadow sm:rounded-md sm:overflow-hidden mt-12" style="width: 500px; margin: auto;">
+            <div class="shadow sm:rounded-md sm:overflow-hidden mt-12 content-wrap" style="width: 500px; margin: auto;">
                   <div class="place-self-center text-2xl text-gray-700 font-bold p-3 text-center bg-white border-b-1 border-gray-300">
                         <span style="margin: 0 auto;">Add New Vehicle</span>
                   </div>
                   <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <form action="/addVehicle" method="POST">
                               <label for="vDescription" class="text-sm font-medium text-gray-700">Enter Vehicle Description:</label>
-                              <input type="text" id="vDescription" name="vDescription" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600">
+                              <input type="text" id="vDescription" name="vDescription" class="ring-slate-300 ring-1 ml-2 mb-4 inline-block shadow-sm px-3 py-1 text-gray-500 font-light rounded-lg focus:border-sky-600" required>
                               <br>
                               <div name="radio_buttons" class="p-2 bg-sky-50 rounded-lg mb-4">
                                     <label for="vType" class="text-base font-medium text-gray-900">Enter Vehicle Type:</label><br>
@@ -125,7 +135,7 @@
                   </form>
             </div>
             <!-- Footer -->
-            <footer class="py-4 mt-7 bg-white w-full text-center h-auto py-6">
+            <footer class="py-4 mt-7 bg-white w-full text-center h-auto">
                   <span class="align-middle">
                       <div class="text-sky-800 font-bold">Contact us</div>
                       <div>
